@@ -22,4 +22,6 @@ router.get("/admin", authenticate, authorize("admin"), (req, res) => {
     res.send("Admin Dashboard");
 });
 
+console.log("hello");
+
 module.exports = router;
