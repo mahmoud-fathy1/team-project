@@ -13,6 +13,7 @@ const path = require("path");
 const winston = require("winston");
 const { createClient } = require("redis");
 const { json } = require("stream/consumers");
+const connectDB = require("./config/db.js");
 require("dotenv").config();
 
 // const redisClient = createClient();
