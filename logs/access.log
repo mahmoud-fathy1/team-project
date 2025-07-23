@@ -1,4 +1,0 @@
-::1 - POST /users/signup HTTP/1.1 409 35 - 732.926 ms
-::1 - - [19/Jul/2025:06:56:07 +0000] "POST /users/signup HTTP/1.1" 409 35 "-" "PostmanRuntime/7.44.1"
-::1 - - [19/Jul/2025:06:56:12 +0000] "POST /users/signup HTTP/1.1" 409 35 "-" "PostmanRuntime/7.44.1"
-::1 - - [19/Jul/2025:06:57:32 +0000] "POST /users/signup HTTP/1.1" 409 35 "-" "PostmanRuntime/7.44.1"

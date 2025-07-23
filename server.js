@@ -8,12 +8,13 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/posts", postRoutes);
-app.use("/users", userRoutes);
+// app.use("/posts", postRoutes);
+// app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
     res.send("Welcome to the API");
 });
+
 connectDB();
 
 app.listen(process.env.PORT || 3000, () => {
