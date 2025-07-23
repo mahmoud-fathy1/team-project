@@ -133,8 +133,3 @@ app.use((err, req, res, next) => {
     });
 });
 module.exports = app;
-
-try {
-    const username = "Ali";
-    username = "Ahmed";
-} catch (error) {}
