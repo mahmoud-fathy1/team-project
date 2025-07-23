@@ -16,6 +16,8 @@ const { json } = require("stream/consumers");
 const connectDB = require("./config/db.js");
 require("dotenv").config();
 
+connectDB();
+
 // const redisClient = createClient();
 
 // redisClient
@@ -134,7 +136,5 @@ app.use((err, req, res, next) => {
         message: err.message,
     });
 });
-
-connectDB();
 
 app.listen(process.env.PORT || 3000, () => console.log("Server started"));
