@@ -1,11 +1,8 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const connectDB = () => {
-    mongoose
-        .connect(
-            "mongodb+srv://ntilab:EDIKIPZo4kWSTcYH@cluster0.gmczi2u.mongodb.net/mydb?retryWrites=true&w=majority&appName=Cluster0"
-        )
-        .then(() => console.log("MongoDB connected"))
+    mongoose.connect(process.env.MONGO_URI).then(() => console.log("MongoDB connected"));
 };
 
 module.exports = connectDB;

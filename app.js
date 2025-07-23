@@ -14,20 +14,20 @@ const winston = require("winston");
 const { createClient } = require("redis");
 const { json } = require("stream/consumers");
 
-const redisClient = createClient();
+// const redisClient = createClient();
 
-redisClient
-    .connect()
-    .then(() => {
-        console.log("Connected to Redis server");
-    })
-    .catch((err) => {
-        logger.error(err);
-    });
+// redisClient
+//     .connect()
+//     .then(() => {
+//         console.log("Connected to Redis server");
+//     })
+//     .catch((err) => {
+//         logger.error(err);
+//     });
 
-redisClient.on("error", (err) => {
-    logger.error(err);
-});
+// redisClient.on("error", (err) => {
+//     logger.error(err);
+// });
 
 const logger = winston.createLogger({
     level: "info",
@@ -102,20 +102,20 @@ app.post(
     }
 );
 
-app.get("/data", async (req, res, next) => {
-    const cachedData = await redisClient.get("bigData");
+// app.get("/data", async (req, res, next) => {
+//     const cachedData = await redisClient.get("bigData");
 
-    if (cachedData) {
-        res.json(JSON.parse(cachedData));
-        return;
-    }
-    const response = await fetch("https://microsoftedge.github.io/Demos/json-dummy-data/5MB.json");
-    const data = await response.json();
+//     if (cachedData) {
+//         res.json(JSON.parse(cachedData));
+//         return;
+//     }
+//     const response = await fetch("https://microsoftedge.github.io/Demos/json-dummy-data/5MB.json");
+//     const data = await response.json();
 
-    redisClient.set("bigData", JSON.stringify(data));
+//     redisClient.set("bigData", JSON.stringify(data));
 
-    res.json(data);
-});
+//     res.json(data);
+// });
 
 app.use((err, req, res, next) => {
     console.log(err);
