@@ -78,52 +78,10 @@ app.use(
 app.use("/posts", postRoutes);
 app.use("/users", userRoutes);
 
-// let emailValidation = function () {
-//     return query("email").notEmpty().isEmail().optional({ checkFalsy: true });
-// };
-
-// app.post("/login", emailValidation(), loginHandler);
-// app.post("/signup", emailValidation().custom(checkEmailNotUsed), signupHandler);
-
-app.post(
-    "/hello",
-    body("email").custom(async (email, { req }) => {
-        const newEmail = email.toLowerCase();
-
-        return newEmail;
-    }),
-    (req, res) => {
-        const result = validationResult(req);
-        const data = matchedData(req);
-        console.log(data);
-
-        if (result.isEmpty()) {
-            res.send(data);
-            return;
-        }
-
-        res.status(400).json({ errors: result.array() });
-    }
-);
-
 app.get("/", (req, res) => {
     res.send("Hello");
 });
 
-// app.get("/data", async (req, res, next) => {
-//     const cachedData = await redisClient.get("bigData");
-
-//     if (cachedData) {
-//         res.json(JSON.parse(cachedData));
-//         return;
-//     }
-//     const response = await fetch("https://microsoftedge.github.io/Demos/json-dummy-data/5MB.json");
-//     const data = await response.json();
-
-//     redisClient.set("bigData", JSON.stringify(data));
-
-//     res.json(data);
-// });
 
 app.use((err, req, res, next) => {
     console.log(err);
