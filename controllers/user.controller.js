@@ -81,8 +81,6 @@ async function logIn(req, res) {
 
 async function getProfile(req, res, next) {
     try {
-        throw new Error("User not found");
-
         res.json({ message: "Your profile info:", user });
     } catch (err) {
         next(err);
