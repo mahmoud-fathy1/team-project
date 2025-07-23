@@ -102,6 +102,10 @@ app.post(
     }
 );
 
+app.get("/", (req, res) => {
+    res.send("Hello");
+});
+
 // app.get("/data", async (req, res, next) => {
 //     const cachedData = await redisClient.get("bigData");
 
